@@ -6,7 +6,7 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 
 /**
- * @Author:WuXiangZhong
+ * @Author: WuXiangZhong
  * @Description: 消费者,负责从阻塞队列中取出任务并交给线程池
  * @Date: Create in 2022/7/24
  */

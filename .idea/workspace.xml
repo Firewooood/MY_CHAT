@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f0dda5dc-74d3-4d08-9926-b22c5d850994" name="默认变更列表" comment="" />
+    <list default="true" id="f0dda5dc-74d3-4d08-9926-b22c5d850994" name="默认变更列表" comment="">
+      <change afterPath="$PROJECT_DIR$/chat-server/src/main/java/com/wxz/server/handler/message/MessageHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-server/src/main/java/com/wxz/server/handler/message/impl/LoginMessageHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-server/src/main/java/com/wxz/server/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-server/src/main/java/com/wxz/server/ChatServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-server/src/main/java/com/wxz/server/exception/handler/InterruptedExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-server/src/main/java/com/wxz/server/exception/handler/InterruptedExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-server/src/main/java/com/wxz/server/task/TaskManagerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-server/src/main/java/com/wxz/server/task/TaskManagerThread.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +24,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="2CMvx3M86gj0TxoqzZAHxWkWi9a" />
   <component name="ProjectViewState">
@@ -41,13 +51,15 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -62,10 +74,22 @@
       <option name="presentableId" value="Default" />
       <updated>1658625514265</updated>
       <workItem from="1658625515615" duration="17483000" />
+      <workItem from="1658719320954" duration="9520000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

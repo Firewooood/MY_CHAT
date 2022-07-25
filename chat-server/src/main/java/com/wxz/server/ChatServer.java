@@ -1,6 +1,9 @@
 package com.wxz.server;
 
+import com.wxz.common.domain.Message;
 import com.wxz.common.domain.Task;
+import com.wxz.common.util.ProtoStuffUtil;
+import com.wxz.server.handler.message.MessageHandler;
 import com.wxz.server.task.TaskManagerThread;
 import com.wxz.server.exception.handler.InterruptedExceptionHandler;
 import com.wxz.server.util.SpringContextUtil;
@@ -15,11 +18,12 @@ import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.util.Iterator;
+import java.util.Locale;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * @Author:WuXiangZhong
+ * @Author: WuXiangZhong
  * @Description: 聊天服务器类
  *      使用NIO, 非阻塞式IO, 一个线程请求写入一些数据到某通道，但不需要等待它完全写入，这个线程同时可以去做别的事情
  * @Date: Create in 2022/7/24
@@ -68,7 +72,8 @@ public class ChatServer {
                     // 当注册的事件到达时,方法返回,否则该方法会一直阻塞
 
                     // 获取当前选择其中所有注册的监听事件
-                    selector.select();
+                    selector.select();          //返回就绪的通道数量
+                    // 2.遍历selectedkeys方法，返回键的集合, 检查每个键，查看相关通道的就绪信息，并进行处理
                     for(Iterator<SelectionKey> it = selector.selectedKeys().iterator(); it.hasNext(); ){
                         SelectionKey key = it.next();
                         it.remove(); // 删除已选的key,防止重复处理
@@ -109,9 +114,42 @@ public class ChatServer {
 
         @Override
         public void run() {
+            try {
+                int size;
+                // 从客户端读取信息,存储在buf中
+                while ((size = client.read(buf)) > 0) {
+                    // position移动到最开始位置，limit移动到数据长度的末尾。每读取一个字节，position向后移动一个字节位置。直到limit位置处停止。
+                    buf.flip(); // 使用flip() 切换为读数据模式
+                    baos.write(buf.array(), 0, size);   // 将buf中的信息写入输出流 baos
+                    buf.clear();    // 清空缓冲区, 回到初始状态
+                }
+                if (size == -1) {
+                    return;
+                }
+                log.info("读取完毕,继续监听");
+                // 继续监听读取事件                    此处未取消读标记
+                key.interestOps(key.interestOps() | SelectionKey.OP_READ);
+                key.selector().wakeup();
+                byte[] bytes = baos.toByteArray();
+                baos.close();
+                Message message = ProtoStuffUtil.deserialize(bytes, Message.class); // 反序列化,从IO流中恢复java对象
+
+                // public static <T> T getBean(String... partName), 此处获得的Bean可能为MessageHandler.MessageType, 有五种可能
+                MessageHandler messageHandler = SpringContextUtil.getBean("MessageHandler", message.getHeader().getType().toString().toLowerCase());
+                try {
+                    messageHandler.handle(message,selector,key,downloadTaskQueue,onlineUsers);
+                } catch (InterruptedException e) {
+                    log.error("服务器线程被中断");
+                    exceptionHandler.handle(client, message);
+                    e.printStackTrace();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
         }
-    }
+        }
+
 
     public ChatServer(){
         log.info("服务器启动");
@@ -173,6 +211,14 @@ public class ChatServer {
      * 处理客户端的连接请求
      */
     private void handleAcceptRequest(){
-
+        try {
+            SocketChannel client = serverSocketChannel.accept();
+            // 接收的客户端也要切换为非阻塞模式
+            client.configureBlocking(false);
+            client.register(selector,SelectionKey.OP_READ);
+            log.info("服务器连接客户端:{}",client);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
