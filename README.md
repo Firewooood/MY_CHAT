@@ -68,6 +68,8 @@ for (Iterator<SelectionKey> it = selector.selectedKeys().iterator(); it.hasNext(
 ### ListenerThread
 该模块判断注册事件是 **接收事件**  或者 **读取事件**, 前者交给**handleAcceptRequest();**处理, 后者交给**readPool.execute(new ReadEventHandler(key));** 处理
 
+
+
 ![Selector](D:\code\项目\Tomcat\MY_CHAT\Selector.png)
 
 ## chat-client 模块
@@ -97,6 +99,8 @@ private void initNetWork() {
 ### 发送消息给服务器
 
 `clientChannel.write(ByteBuffer.wrap(ProtoStuffUtil.serialize(message)));`
+
+客户端对Selector绑定的channel进行连接读写时,会激活服务器端阻塞的selector.select()函数. 
 
 ## common 模块
 ### domain
