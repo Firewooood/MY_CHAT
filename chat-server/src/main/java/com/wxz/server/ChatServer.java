@@ -1,10 +1,8 @@
 package com.wxz.server;
 
 import com.wxz.common.domain.Message;
-import com.wxz.common.domain.Task;
 import com.wxz.common.util.ProtoStuffUtil;
 import com.wxz.server.handler.message.MessageHandler;
-import com.wxz.server.task.TaskManagerThread;
 import com.wxz.server.exception.handler.InterruptedExceptionHandler;
 import com.wxz.server.util.SpringContextUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +16,6 @@ import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.util.Iterator;
-import java.util.Locale;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -40,8 +37,6 @@ public class ChatServer {
     private Selector selector;  // 单线程使用selector可以处理多个channel
 
     private ExecutorService readPool;   //线程池
-    private BlockingQueue<Task> downloadTaskQueue;
-    private TaskManagerThread taskManagerThread;
     private ListenerThread listenerThread;
     private InterruptedExceptionHandler exceptionHandler;
 
@@ -137,7 +132,7 @@ public class ChatServer {
                 // public static <T> T getBean(String... partName), 此处获得的Bean可能为MessageHandler.MessageType, 有五种可能
                 MessageHandler messageHandler = SpringContextUtil.getBean("MessageHandler", message.getHeader().getType().toString().toLowerCase());
                 try {
-                    messageHandler.handle(message,selector,key,downloadTaskQueue,onlineUsers);
+                    messageHandler.handle(message,selector,key,onlineUsers);
                 } catch (InterruptedException e) {
                     log.error("服务器线程被中断");
                     exceptionHandler.handle(client, message);
@@ -172,9 +167,6 @@ public class ChatServer {
             // 初始化类变量
             //           核心线程数为5,最大线程数为10,救急线程生存时间为1000ms,阻塞队列大小为10, 拒绝策略为 (如果任务被拒绝了,由调用线程直接执行该任务)
             this.readPool = new ThreadPoolExecutor(5,10,1000, TimeUnit.MILLISECONDS,new ArrayBlockingQueue<Runnable>(10), new ThreadPoolExecutor.CallerRunsPolicy());
-            this.downloadTaskQueue = new ArrayBlockingQueue<>(20);
-            this.taskManagerThread = new TaskManagerThread(downloadTaskQueue);
-            this.taskManagerThread.setUncaughtExceptionHandler(SpringContextUtil.getBean("taskExceptionHandler"));
             this.listenerThread = new ListenerThread();
             this.onlineUsers = new AtomicInteger(0);
             this.exceptionHandler = SpringContextUtil.getBean("interruptedExceptionHandler");
@@ -189,7 +181,6 @@ public class ChatServer {
      */
     public void launch(){
         new Thread(listenerThread).start();
-        new Thread(taskManagerThread).start();
     }
 
     /**
@@ -197,7 +188,6 @@ public class ChatServer {
      */
     public void shutdownServer(){
         try {
-            taskManagerThread.shutdown();
             listenerThread.shutdown();
             readPool.shutdown();
             serverSocketChannel.close();

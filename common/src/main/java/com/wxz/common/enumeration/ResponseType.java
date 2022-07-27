@@ -7,8 +7,7 @@ package com.wxz.common.enumeration;
  */
 public enum ResponseType {
     NORMAL(1,"消息"),
-    PROMPT(2,"提示"),
-    FILE(3,"文件");
+    PROMPT(2,"提示");
     
     private int code;
     private String desc;

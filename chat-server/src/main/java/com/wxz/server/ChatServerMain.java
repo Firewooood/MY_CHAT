@@ -3,7 +3,7 @@ package com.wxz.server;
 import java.util.Scanner;
 
 /**
- * @Author:WuXiangZhong
+ * @Author: WuXiangZhong
  * @Description:    服务器启动主函数
  * @Date: Create in 2022/7/24
  */

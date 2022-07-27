@@ -1,7 +1,7 @@
 package com.wxz.common.enumeration;
 
 /**
- * @Author:WuXiangZhong
+ * @Author: WuXiangZhong
  * @Description:
  * @Date: Create in 2022/7/24
  */
@@ -9,8 +9,7 @@ public enum MessageType {
     LOGIN(1,"登录"),
     LOGOUT(2,"注销"),
     NORMAL(3,"单聊"),
-    BROADCAST(4,"群发"),
-    TASK(4,"任务");
+    BROADCAST(4,"群发");
     
     private int code;
     private String  desc;

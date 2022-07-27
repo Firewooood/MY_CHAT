@@ -5,11 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0dda5dc-74d3-4d08-9926-b22c5d850994" name="默认变更列表" comment="">
-      <change afterPath="$PROJECT_DIR$/chat-server/src/main/java/com/wxz/server/handler/message/impl/LogoutMessageHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-server/src/main/java/com/wxz/server/test/ClientTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-server/src/main/java/com/wxz/server/test/ServerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-client/src/main/java/com/wxz/client/ChatClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-client/src/main/java/com/wxz/client/ChatClientMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-server/src/main/java/com/wxz/server/handler/message/impl/BroadcastMessageHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-server/src/main/java/com/wxz/server/handler/message/impl/NormalMessageHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-server/src/main/resources/log4j.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/chat-client/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-server/src/main/java/com/wxz/server/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-server/src/main/java/com/wxz/server/ChatServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-server/src/main/java/com/wxz/server/ChatServerMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-server/src/main/java/com/wxz/server/ChatServerMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-server/src/main/java/com/wxz/server/handler/message/MessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-server/src/main/java/com/wxz/server/handler/message/MessageHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chat-server/src/main/java/com/wxz/server/handler/message/impl/LoginMessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-server/src/main/java/com/wxz/server/handler/message/impl/LoginMessageHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-server/src/main/java/com/wxz/server/handler/message/impl/LogoutMessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-server/src/main/java/com/wxz/server/handler/message/impl/LogoutMessageHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-server/src/main/java/com/wxz/server/task/TaskManagerThread.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-server/target/classes/com/wxz/server/ChatServer$ListenerThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/chat-server/target/classes/com/wxz/server/ChatServer$ListenerThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-server/target/classes/com/wxz/server/ChatServer$ReadEventHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/chat-server/target/classes/com/wxz/server/ChatServer$ReadEventHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-server/target/classes/com/wxz/server/ChatServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/chat-server/target/classes/com/wxz/server/ChatServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-server/target/classes/com/wxz/server/handler/message/MessageHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/chat-server/target/classes/com/wxz/server/handler/message/MessageHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-server/target/classes/com/wxz/server/handler/message/impl/LoginMessageHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/chat-server/target/classes/com/wxz/server/handler/message/impl/LoginMessageHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-server/target/classes/com/wxz/server/task/TaskManagerThread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wxz/common/domain/Task.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wxz/common/domain/TaskDescription.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wxz/common/enumeration/MessageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wxz/common/enumeration/MessageType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wxz/common/enumeration/ResponseType.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wxz/common/enumeration/ResponseType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wxz/common/enumeration/TaskType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wxz/common/util/FileUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wxz/common/util/ZipUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/wxz/common/domain/Task.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/wxz/common/domain/TaskDescription.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/wxz/common/enumeration/MessageType.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/wxz/common/enumeration/MessageType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/wxz/common/enumeration/ResponseType.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/wxz/common/enumeration/ResponseType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/wxz/common/enumeration/TaskType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/wxz/common/util/FileUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/wxz/common/util/ZipUtil.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +64,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/common/src/main/java/com/wxz/common" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/chat-server/src/main/resources" />
     <property name="project.structure.last.edited" value="模块" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -45,11 +73,38 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\code\项目\Tomcat\MY_CHAT\chat-server\src\main\resources" />
       <recent name="D:\code\项目\Tomcat\MY_CHAT\common\src\main\java\com\wxz\common" />
       <recent name="D:\code\项目\Tomcat\MY_CHAT\common\src\main\java\com\wxz\common\domain" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.ClientTest">
+  <component name="RunManager" selected="应用程序.ChatServerMain">
+    <configuration name="ChatClientMain" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.wxz.client.ChatClientMain" />
+      <module name="chat-client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.wxz.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ChatServerMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.wxz.server.ChatServerMain" />
+      <module name="chat-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.wxz.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ClientTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.wxz.server.test.ClientTest" />
       <module name="chat-server" />
@@ -76,8 +131,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="应用程序.ChatClientMain" />
+      <item itemvalue="应用程序.ChatServerMain" />
+      <item itemvalue="应用程序.ClientTest" />
+      <item itemvalue="应用程序.ServerTest" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="应用程序.ChatClientMain" />
+        <item itemvalue="应用程序.ChatServerMain" />
         <item itemvalue="应用程序.ClientTest" />
         <item itemvalue="应用程序.ServerTest" />
       </list>
@@ -93,7 +167,7 @@
       <updated>1658625514265</updated>
       <workItem from="1658625515615" duration="17483000" />
       <workItem from="1658719320954" duration="18338000" />
-      <workItem from="1658807740037" duration="4626000" />
+      <workItem from="1658807740037" duration="15016000" />
     </task>
     <servers />
   </component>

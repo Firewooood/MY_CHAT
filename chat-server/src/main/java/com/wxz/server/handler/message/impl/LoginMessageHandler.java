@@ -29,7 +29,7 @@ public class LoginMessageHandler extends MessageHandler {
     private UserManager userManager;
 
     @Override
-    public void handle(Message message, Selector server, SelectionKey client, BlockingQueue<Task> queue, AtomicInteger onlineUsers) throws InterruptedException {
+    public void handle(Message message, Selector server, SelectionKey client, AtomicInteger onlineUsers) throws InterruptedException {
         // 获取和客户端连接的SocketChannel
         SocketChannel clientChannel = (SocketChannel) client.channel();
         MessageHeader header = message.getHeader();

@@ -3,7 +3,6 @@ package com.wxz.server.handler.message.impl;
 import com.wxz.common.domain.Message;
 import com.wxz.common.domain.Response;
 import com.wxz.common.domain.ResponseHeader;
-import com.wxz.common.domain.Task;
 import com.wxz.common.enumeration.ResponseCode;
 import com.wxz.common.enumeration.ResponseType;
 import com.wxz.common.util.ProtoStuffUtil;
@@ -35,7 +34,7 @@ public class LogoutMessageHandler extends MessageHandler {
     private UserManager userManager;
 
     @Override
-    public void handle(Message message, Selector server, SelectionKey client, BlockingQueue<Task> queue, AtomicInteger onlineUsers) {
+    public void handle(Message message, Selector server, SelectionKey client, AtomicInteger onlineUsers) {
         try {
             SocketChannel clientChannel = (SocketChannel) client.channel();
             userManager.logout(clientChannel);

@@ -1,7 +1,6 @@
 package com.wxz.server.handler.message;
 
 import com.wxz.common.domain.Message;
-import com.wxz.common.domain.Task;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -21,7 +20,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public abstract class MessageHandler {
     public static final String SYSTEM_SENDER = "系统提示";
-    abstract public void handle(Message message, Selector server, SelectionKey client, BlockingQueue<Task> queue, AtomicInteger onlineUsers) throws InterruptedException;
+    abstract public void handle(Message message, Selector server, SelectionKey client, AtomicInteger onlineUsers) throws InterruptedException;
 
     protected void broadcast(byte[] data, Selector server) throws IOException {
         for (SelectionKey selectionKey : server.keys()) {

@@ -72,7 +72,34 @@ for (Iterator<SelectionKey> it = selector.selectedKeys().iterator(); it.hasNext(
 
 ![Selector](D:\code\项目\Tomcat\MY_CHAT\Selector.png)
 
+
+
 ## chat-client 模块
+
+### 客户端界面
+
+界面使用Frame, 综合 TextField输入框, TextArea文本区 显示,输入框在文本区下方,  关于frame,绑定了关闭和重写事件.
+
+```java
+// 重写关闭事件
+this.addWindowListener(new WindowAdapter() {
+    @Override
+    public void windowClosing(WindowEvent e) {
+        setVisible(false);  // 使当前窗口不可见
+        disConnect();   // 断开client和server的连接
+        System.exit(0);
+    }
+});
+
+this.tfText.addActionListener((actionEvent) -> {
+    String str = tfText.getText().trim();
+    tfText.setText("");
+	//System.out.println(str);
+    send(str);
+});
+```
+
+
 
 ### 连接ServerSocketChannel
 
@@ -110,8 +137,6 @@ private void initNetWork() {
     - MessageHeader
     - Request
     - ResponseHeader
-    - Task
-    - TaskDescription
     - User
 ### enumeration
 - 枚举了MY_CHAT项目中的各个模式
@@ -121,9 +146,8 @@ private void initNetWork() {
     > LOGOUT(2,"注销"),
     > NORMAL(3,"单聊"),
     > BROADCAST(4,"群发"),
-    > TASK(4,"任务");
-	
-  - ResponseCode
+    
+	- ResponseCode
     
     > LOGIN_SUCCESS(1,"登录成功"),
     > LOGIN_FAILURE(2,"登录失败"),
@@ -133,17 +157,10 @@ private void initNetWork() {
   
     > NORMAL(1,"消息"),
     > PROMPT(2,"提示"),
-    > FILE(3,"文件");
-
-  - TaskType
-  
-  	> FILE(1,"文件"),
-    > CRAWL_IMAGE(2,"豆瓣电影图片");
+    
 ### util
 - 综合了各工具类
   - DateTimeUtil
-  - FileUtil
   - ProtoStuffUtil
-  - ZipUtil 
 
 
