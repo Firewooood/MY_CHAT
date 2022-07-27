@@ -8,12 +8,7 @@
         - 例：@user2:hello
    - 群聊：message
         -  例：hello,everyone
-   - 提交任务：task.file:图片的URL  / task.crawl_image:豆瓣电影的id[?imageSize=n] 可以加请求参数
-        - 例1：task.file:https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2107289058.webp
-          下载完毕后会弹出一个框，输入想将其保存到的路径，比如E:/img.webp
-        - 例2：task.crawl_image:1292371?imageSize=2 
-          下载完毕后在弹出的框中输入E:/images.zip
-   
+
 
 # 项目结构
 
